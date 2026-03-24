@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Tetris</title>
+    <meta name="description" content="A premium HTML5 Tetris built with vanilla JavaScript.">
+    <!-- Google Fonts for Orbitron (display) and Roboto (UI) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Main Game Board -->
+        <div class="board-wrapper">
+            <!-- 10 blocks wide, 20 blocks high, block size = 30px -->
+            <canvas id="gameCanvas" width="300" height="600"></canvas>
+            
+            <!-- Overlays -->
+            <div id="gameOverScreen" class="overlay hidden">
+                <h2>GAME OVER</h2>
+                <p>Score: <span id="finalScore">0</span></p>
+                <button id="restartBtn">RESTART</button>
+            </div>
+            
+            <div id="pauseScreen" class="overlay hidden">
+                <h2>PAUSED</h2>
+                <p>Press 'P' to resume</p>
+            </div>
+        </div>
+
+        <!-- Side Panel UI -->
+        <div class="side-panel">
+            <div class="panel-box title-box">
+                <h1>TETRIS</h1>
+            </div>
+            <div class="panel-box">
+                <h3>SCORE</h3>
+                <p id="score">0</p>
+            </div>
+            <div class="panel-box">
+                <h3>LEVEL</h3>
+                <p id="level">1</p>
+            </div>
+            <div class="panel-box">
+                <h3>LINES</h3>
+                <p id="lines">0</p>
+            </div>
+            
+            <!-- Next Piece Preview -->
+            <div class="panel-box next-piece-box">
+                <h3>NEXT</h3>
+                <!-- 4x4 blocks for preview -> 30*4 = 120 -->
+                <canvas id="nextCanvas" width="120" height="120"></canvas>
+            </div>
+            
+            <!-- Controls Legend -->
+            <div class="controls-info panel-box">
+                <h3>CONTROLS</h3>
+                <ul>
+                    <li><span>← / →</span> Move</li>
+                    <li><span>↑</span> Rotate</li>
+                    <li><span>↓</span> Soft Drop</li>
+                    <li><span>Space</span> Hard Drop</li>
+                    <li><span>P</span> Pause</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="tetrominoes.js"></script>
+    <script src="board.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
